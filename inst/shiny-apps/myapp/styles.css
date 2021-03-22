@@ -1,0 +1,334 @@
+/* Validation font color */
+ .shiny-output-error-validation {
+        color: red;
+}
+
+/* logo */
+.skin-blue .main-header .logo {
+    background-color: #136c68;
+    color: #ffffff;  
+}
+
+/* logo when hovered */
+.skin-blue .main-header .logo:hover {
+    background-color:  #136c68;
+    #color: #000000;
+}
+
+/*sidebar toggle when hovered*/
+.skin-blue .main-header .navbar .sidebar-toggle:hover {
+    background-color: #17827d;
+}
+
+/* navbar (rest of the header) */
+.skin-blue .main-header .navbar {
+    background-color:  #1fada6;
+}        
+
+/* main sidebar  #1fada6; */
+.skin-blue .main-sidebar {
+    background-color: #1fada6;
+}
+
+/* Shading for the left thin border on sidebar menu */
+.skin-blue .sidebar-menu>li.active>a, .skin-blue .sidebar-menu>li:hover>a {
+    border-left-color: #136c68;
+}
+
+
+/* active selected tab in the sidebarmenu */
+.skin-blue .main-sidebar .sidebar .sidebar-menu .active a{
+    background-color: #52e0d9;
+}
+
+/* other links in the sidebarmenu */
+.skin-blue .main-sidebar .sidebar .sidebar-menu a{
+    background-color: #1fada6;
+    color: #000000;
+}
+
+/* other links in the sidebarmenu when hovered */
+ .skin-blue .main-sidebar .sidebar .sidebar-menu a:hover{
+    background-color: #52e0d9;
+}
+
+/* change the color of the sidebar menus */
+.skin-blue .sidebar-menu>li>.treeview-menu {
+    background:  #1fada6;
+}   
+
+/* Shading for the sidebar menu text */                     
+.skin-blue .main-sidebar .sidebar .sidebar-menu a {
+    color: #ffffff;
+} 
+
+/* Shading for the sidebar menu text on active */
+.skin-blue .main-sidebar .sidebar .sidebar-menu .active a {
+    color: #000000;
+} 
+
+/* Shading for the sidebar menu text on hover */
+.skin-blue .main-sidebar .sidebar .sidebar-menu a:hover {
+    color: #000000;
+}   
+
+/* background color for the body */   
+.content-wrapper, .right-side {
+    background-color: #ffffff;
+}   
+
+/* remove shading for the box */
+.box {
+    border-top: 3px solid #ffffff;
+    box-shadow: 0 0px 0px rgba(0,0,0,0);
+}
+
+/* remove shading for the tabPanel*/
+.nav-tabs-custom {
+    border-top: 3px solid #ffffff;                              
+    box-shadow: 0 0px 0px rgba(0,0,0,0);
+}
+
+/* set font style and color for the text of tabs*/               
+.nav-tabs-custom>.nav-tabs>li.active:hover>a, .nav-tabs-custom>.nav-tabs>li.active>a {
+    color: #1fada6;
+    font-weight: bold;      
+}  
+
+/* set color for the thin top border of active tabs*/                
+.nav-tabs-custom>.nav-tabs>li.active {
+    border-top-color: #136c68;
+}  
+
+/* set color of the fileinput progess bar */                        
+.progress-bar {
+    color: #fff;
+    background-color: #52e0d9;
+}
+
+/* set the col-sm-6 width */
+.col-sm-6 {
+    width: 100%;
+    height: 80px; 
+}
+
+/* set the col-sm-4 width */
+.col-sm-4 {
+    width: 50%;
+    height: 80px; 
+}
+
+/* set the col-sm-3 width */
+.col-sm-3 {
+    width: 50%;
+    height: 80px; 
+}
+
+/* set the col-sm-9 width */
+.col-sm-9 {
+    width: 100%;
+    height: 60px; 
+}
+
+/* set the col-sm-10 width */
+.col-sm-10 {
+    width: 80%;
+}
+
+/* set the col-sm-2 width */
+.col-sm-2 {
+    width: 20%;
+}
+
+/* set the radio button margins for checked option */
+.checkbox-inline, .radio-inline {
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 10px;
+}
+
+/* set the radio button margins */
+.checkbox-inline+.checkbox-inline, .radio-inline+.radio-inline {
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 10px;
+}       
+
+/* set the col-sm-8 width */
+.col-sm-8 {
+    width: 100%;
+    height: 80px; 
+}
+
+.col-sm-12 {
+    height: 72vh; 
+    overflow-y: auto;
+}
+
+.shiny-output-error { 
+    visibility: hidden; 
+}
+
+.shiny-output-error:before { 
+    visibility: hidden; 
+} 
+        
+.shiny-progress {
+    top: 50% !important;
+    left: 50% !important;
+    margin-top: -100px !important;
+    margin-left: -250px !important; 
+}
+        
+.nav a {
+    color: #1fada6;
+    font-weight: bold; 
+}
+
+.shiny-progress .progress-text { 
+  	position: absolute; 
+  	right: 10px; 
+  	height: 24px; 
+  	width: 240px; 
+  	background-color: #eef8ff; 
+  	margin: 0px; 
+  	padding: 2px 3px; 
+  	opacity: 0.85; 
+} 
+
+.left4_col {
+    float: left;
+    width: 22.5%;
+    margin-right:2.5%;
+}
+
+.right4_col {
+    float: right;
+    width: 22.5%;
+    margin-right:2.5%;
+}
+
+.parambox{
+    height: auto;
+    overflow: auto;
+}
+
+
+.left2_col {
+    float: left;
+    width: 45%;
+    margin-right: 5%;
+    }
+
+.right2_col {
+   float: right;
+   width: 45%;
+   margin-right:5%;
+}
+
+
+.left1_col {
+   float: left;
+   width: 72.5%;
+   margin-right:2.5%;
+}
+
+
+.right1_col {
+   float: right;
+   width: 22.5%;
+   margin-right:2.5%;
+}
+
+
+.left3_col {
+    float: left;
+    width: 29%;
+    margin-right: 4.5%;
+    }
+
+.right3_col {
+   float: right;
+   width: 29%;
+   margin-right: 4%;
+}
+
+
+.leftDose_col {
+   float: left;
+   width: 30%;
+   margin-right: 5%;
+}
+
+.rightDose_col {
+   float: right;
+   width: 30%;
+   margin-right:35%;
+}
+
+.smButton, .smButton.btn:focus {
+ background-color: #1fada6;
+    color: #ffffff;
+    text-align:left;
+    display: block;
+    margin: 0 auto; 
+    width: 90%;
+    border-color: #1fada6;
+    height: 40px;
+}
+
+
+.smButton.btn:hover {
+    background-color: #ffffff;
+    color: #1fada6;
+    text-align:left;
+    display: block;
+    margin: 0 auto; 
+    width: 90%;
+    border-color: #1fada6;
+    box-shadow: inset 0 0px 0px #1fada6;
+    height: 40px;
+}
+
+#plot-container { 
+    position: relative; 
+} 
+
+#loading-spinner { 
+    position: absolute; 
+    left: 50%; 
+    top: 50%; 
+    z-index: -1; 
+    margin-top: -33px;  /* half of the spinner's height */ 
+    margin-left: -33px; /* half of the spinner's width */ 
+} 
+
+#plot.recalculating { 
+    z-index: -2; 
+} 
+
+.vr {
+    display:inline;
+    height:100%;
+    width:1px;
+    border:1px inset;
+    margin:5px
+}
+
+
+.header1_col {
+    float: left;
+    width: 25%;
+    margin-right: 1%;
+    }
+    
+.header2_col {
+    float: left;
+    width:40%;
+    margin-right: 1%;
+    }    
+    
+.downloadButton {
+    width: 20%;
+}  
+

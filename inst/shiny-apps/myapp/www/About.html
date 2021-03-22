@@ -1,0 +1,332 @@
+<head>
+<link rel="stylesheet" type="text/css" href="default.css">
+</head>
+
+<div class="subtoc">
+<h2><strong><a name="back">Contents</a></strong></h2>
+
+<ol>
+<li><a class="tocxref" href="#h-1">What is ModViz?</a></li>
+<li><a class="tocxref" href="#h-2">Model Selection Sources</a></li>
+<li><a class="tocxref" href="#h-3">PKPD Library</a></li>
+<li><a class="tocxref" href="#h-4">Project Library</a></li>
+<li><a class="tocxref" href="#h-5">User Defined Model</a></li>
+<li><a class="tocxref" href="#h-6">Fixed and Random Effects</a></li>
+<li><a class="tocxref" href="#h-7">Dosing Inputs</a></li>
+<li><a class="tocxref" href="#h-8">Simulation Options</a></li>
+<li><a class="tocxref" href="#h-9">Simulated Data Tab</a></li>
+<li><a class="tocxref" href="#h-10">Plots Tab</a></li>
+<li><a class="tocxref" href="#h-11">PK-NCA Tab</a></li>
+<li><a class="tocxref" href="#h-12">Model Tab</a></li>
+<li><a class="tocxref" href="#h-13">Inputs Tab</a></li>
+<li><a class="tocxref" href="#h-14">Downloads Tab</a></li>
+<li><a class="tocxref" href="#h-15">Advanced Options</a></li>
+<li><a class="tocxref" href="#h-16">Overlaying External Data</a></li>
+<li><a class="tocxref" href="#h-17">Setting a Simulation as a Reference</a></li>
+<li><a class="tocxref" href="#h-18">Parameter Sweep for Sensitivity Analysis</a></li>
+<li><a class="tocxref" href="#h-19">Provide Feedback</a></li>
+</ol>
+</div>
+
+<h2> <a name="h-1">1</a> What is ModViz? </h2>
+<p> <strong>ModViz</strong> is an interactive and dynamic visualization tool developed for simulating ordinary differential equation based
+pharmacokinetic and pharmacodynamic (PK/PD) models with variability. Availability of a wide array of library PK/PD models, flexibility to
+simulate from any ODE based user defined model, customizable plotting features, advanced features to overlay external data, setting a
+simulation as a reference, conducting parameter sensitivity analysis, and robust reporting features make ModViz an attractive platform to be
+leveraged by PK/PD scientists and modelers in their day to day activities. It is primarily programmed in
+<a href="https://cran.r-project.org/" target="_blank">R</a> and uses key R packages such as <strong>tidyverse</strong>, <strong>mrgsolve</strong>,
+<strong>PKNCA</strong> and <strong>xtable</strong>. It utilizes <a href="http://shiny.rstudio.com/" target="_blank">R Shiny</a> for the web application
+framework, <a href="https://www.latex-project.org/" target="_blank">LaTeX</a> for PDF report generation,
+<a href="http://www.w3.org/html/" target="_blank">HTML</a> and <a href="http://www.w3.org/Style/CSS/" target="_blank">CSS</a> for styling graphical
+interface.
+</p>
+<img src="Picture1.1.png" alt="HTML5 Icon", height="473", width="862">
+<p>
+The user interface consists of a sidebar with several key inputs for performing the simulations.
+A tabbed navigation allows the user to visualize the simulated data, plots, PK NCA, model equations and input parameters.
+It also provides user the ability to download the underlying model, plots, simulated data, a comprehensive report consisting of all the key inputs and outputs of the simulations,
+and a complete simulation session the user works on.
+The Help button is a link to ModViz documentation with detailed instructions on different components of the interface for running tailored simulations.
+</p>
+<img src="Picture1.2.png" alt="HTML5 Icon", height="602", width="833">
+<p><a href="#back">Back to Contents</a></p>
+<hr> </hr>
+
+<h2> <a name="h-2">2</a> Model Selection </h2>
+<p>Model Selection: This option provides a pop up menu for selecting:
+<ol type="1">
+<li> Selecting Source for the models (Default: PKPD ODE Library)
+<li> Custom Event Input or Individual Dataset as Input (Default: No)
+</ol>
+</p>
+<img src="Picture2.1.png" alt="HTML5 Icon", height="334", width="770">
+<p> The source selection, via a drop down menu, provides the following sources to choose from:
+<ol type="1">
+<li>PKPD ODE Library: This is a library of PK/PD models based on the compartmental nomenclature (e.g. V1, CL, KA etc.) for simulating standard IV bolus,
+infusion and first order absorption simulations.</li>
+<li>Project Library: This is a repository of PK/PD models for project teams developed specifically for a project based application to impact decision making.</li>
+<li>User Defined: This gives the ability to plug in a user defined model from local directory to quickly simulate a model.</li>
+</ol>
+</p>
+<img src="Picture2.2.png" alt="HTML5 Icon", height="410", width="881">
+<p> A custom event input option provides the ability to input complex dosing scenarios by browsing for the file and uploading it.
+In instances where the user wants to define the complete input dataset, that also can be provided by this option. </p>
+<p>Below is an example event dataset with several types of dosing events (not comprehensive).
+<ul>
+<li>ID 1: Multiple dose PO (4 total, QD)
+<li>ID 2: IV Infusion
+<li>ID 3: Four PO doses at 0 hr (1000 units), 24 hr (500 units), 48 hr (500 units) and 72 hr (1000 units)
+<li>ID 4: Multiple IV infusions (3 total, once every 48 hr apart)
+<li>ID 5: 1000 units PO dose followed by 5000 units of SC infusion after 24 hr
+</ul>
+</p>
+<img src="Picture2.3.png" alt="HTML5 Icon", height="428", width="876">
+<p> Note:
+<ul>
+<li>When these custom event options are used, Dosing Options is grayed out.
+<li>The number of compartments in the event input should be at maximum the number of compartments defined in the model. For example, a one compartment IV bolus model cannot accept events that are dosed into the second compartment. That will require a model that defines at least two compartments.
+</ul>
+</p>
+<p><a href="#back">Back to Contents</a></p>
+<hr> </hr>
+
+<h2> <a name="h-3">3</a> PKPD Library</h2>
+<p> If a PKPD library is selected in the Source Selection (also the default selection), the Model Selection provides options for selection of Route, Number of Compartments and PD Model.
+Route of administration selection includes IV Bolus, IV Infusion and 1st Order Absorption.
+Number of compartments selection includes One compartment and Two compartment models as options.
+PD Model selection includes None meant for PK only simulations, Emax, Effect Compartment, Indirect Response I to IV models meant for
+stimulation/inhibition of factors controlling production/loss of drug response.
+</p>
+<img src="Picture3.1.png" alt="HTML5 Icon", height="752", width="336">
+<br><br>
+<p> Once all the options are chosen in the Model Selection, by clicking Load Model, ModViz loads and compiles the model.
+A progress bar on the bottom right hand corner indicates when the process is complete. Also, the loaded model is shown under the
+Load Model button to provide user clarity on which model is currently loaded for simulation. </p>
+<img src="Picture3.2.png" alt="HTML5 Icon", height="601", width="835">
+<p><a href="#back">Back to Contents</a></p>
+<hr> </hr>
+
+
+<h2> <a name="h-4">4</a> Project Library </h2>
+<p> Project Library option in the Source Selection (with in Model Selection tab) lets the user select a model from a repository of PK/PD models. These models are developed by PPDM representatives on project teams to aid the teams on model informed drug discovery and development decisions.
+ADME PIs or QP2 leads who have a project specific final model that needs to be uploaded to the repository, please reach out to one of the project leads
+(<a href="#h-19">Contact Information</a>).</p>
+<img src="Picture4.1.png" alt="HTML5 Icon", height="619", width="832">
+<p><a href="#back">Back to Contents</a></p>
+<hr> </hr>
+
+<h2> <a name="h-5">5</a> User Defined Model </h2>
+<p>For User Defined Source Selection, select the *.cpp model file from the local path and select Load Model. It will load the model onto ModViz.</p>
+<img src="Picture5.1.png" alt="HTML5 Icon", height="563", width="850">
+<p><a href="#back">Back to Contents</a></p>
+<hr> </hr>
+
+<h2> <a name="h-6">6</a> Fixed and Random Effects </h2>
+<p> Once the model selection is complete, ModViz provides an interface to edit fixed and random effects.
+</p>
+<p>Fixed Effects option opens up the fixed effect parameters pop up. For PKPD Library of models, these need to updated to the set of PK/PD parameters for compounds of interest.
+For example, for the indirect response III model chosen, the following pop up appears for fixed effect parameter selection, which can be modified to the user requirements for simulation:
+</p>
+<img src="Picture6.1.png" alt="HTML5 Icon", height="434", width="853">
+<br><br>
+<p> The units options of the parameters are placeholders for users to note the correct units. They are not programmed to adjust for the specified doses or concentrations automatically. User has to carefully provide the units as ModViz is agnostic to these units.
+<br><br>
+Similarly, Random Effects opens up random effect parameter options.
+<ul>
+<li> None: This lets you simulate with only fixed effects and no variability
+<li> Between Subject Only: This lets you simulate using only between subject variability and no residual variability.
+<li> Residual Only: This lets you simulate using only residual variability and no between subject variability.
+<li> Both: This lets you simulate using both between subject variability and residual variability.
+</ul>
+Note:
+<ul>
+<li> Inter-occasion variability can also be included as long as it is coded using the ETA nomenclature (by using either the Between Subject Only or Both option).
+<li> All the input matrices have to be block matrices. The covariances need to be properly set to zero in instances where there are only diagonal elements or when there are two separate matrices such as PK and PD which need to be pooled into a single block matrix.
+<li> In instances where the input matrix gets very large, such as for a given user defined model, the recommendation is that the matrix be filled out in the actual model file with ideally minimal edits needed in the interface.
+</ul>
+</p>
+<img src="Picture6.2.png" alt="HTML5 Icon", height="513", width="861">
+<p><a href="#back">Back to Contents</a></p>
+<hr> </hr>
+
+
+<h2> <a name="h-7">7</a> Dosing Inputs </h2>
+<p>Dosing options include Dose(s), Duration of Infusion, Number of Doses, Dosing Interval and Dosing Compartment as inputs. Dose(s) input lets the user simulate more than one dose at a time by using comma separated values for the doses.
+Number of Doses input can be used to simulate a multiple dose scenario. Dosing interval can be customized using the Dosing Interval input.
+Duration of Infusion option is available when an IV Infusion option is chosen in the Model Selection from the Library of PK/PD models.
+Duration of Infusion and Dosing Compartment options are both available when a User Defined or Project Library model is chosen. Dosing compartment defaults to 1 but can be modified as per the model requirements.</p>
+<img src="Picture7.1.png" alt="HTML5 Icon", height="415", width="880">
+<p><a href="#back">Back to Contents</a></p>
+<hr> </hr>
+
+
+<h2> <a name="h-8">8</a> Simulation Options </h2>
+<p> Simulation options include Start and End Time of the simulation, Timepoints that can be given as an input, an optional Seed and Number of subjects.
+These options are filled out by default and can be left as such or they can be further modified as per the user requirements.
+For example, End Time can be extended to simulate the elimination of the drug beyond the default end time of the last dosing interval.
+</p>
+
+<p> The default time points include a sequence of time points with a step size of 0.25. This step size indicates the smallest time interval between two time points in the simulation and can be modified as necessary.
+The user can also define new comma separated values or sequences or a combination of these as time points for simulation. Some examples are:
+<ul>
+<li>seq(0, 24, 1)
+<li>c(0,1, 2, 4, 6, 8, 12, 16, 24)
+<li>c(0, 1, 2, seq(4, 24, 2), 48)
+</ul>
+</p>
+<img src="Picture8.1.png" alt="HTML5 Icon", height="458", width="677">
+<p> When random effects are turned off using None option, Select Seed will not be available and Select Number of Subjects will default to 1. </p>
+<p> Once all the options are selected, clicking Run Simulation on the top options will run the simulation. A progress bar indicates the simulation completion. </p>
+<img src="Picture8.2.png" alt="HTML5 Icon", height="131", width="517">
+<p><a href="#back">Back to Contents</a></p>
+<hr></hr>
+
+
+<h2> <a name="h-9">9</a> Simulated Data Tab </h2>
+<p>There are multiple outputs generated once the simulation is carried out. The tabs on the right side include these outputs. </p>
+<img src="Picture9.1.png" alt="HTML5 Icon", height="71", width="516">
+<p> The first of these tabs is the simulated data.
+Choose Columns option lets user choose columns that will be visible in the table. A Search option can let one search for existence of any content with in the table.
+Through the column headers, the users can sort the order of the column contents.
+<p> Searchable text boxes are available in the footer of each column to subset the data in the columns. For example: </p>
+<p>20.00 ... 20.00 gives out only values equal to 20.00. </p>
+<p>15.00 ... 20.00 gives out values between 15.00 and 20.00. </p>
+Also, a paged navigation is available on the right hand bottom corner to switch through multiple pages of data.
+</p>
+<img src="Picture9.2.png" alt="HTML5 Icon", height="324", width="840">
+<hr> </hr>
+
+
+<h2> <a name="h-10">10</a> Plots Tab </h2>
+<p>Under the plots tab, two additional options are provided. Plot options is used to customize the plots generated and Plot Simulation button actually plots the data per the options chosen.</p>
+<img src="Picture10.1.png" alt="HTML5 Icon", height="133", width="575">
+<br> <br>
+<p>Various plot options are available to customize the plots. </p>
+<img src="Picture10.2.png" alt="HTML5 Icon", height="615", width="776">
+<br>
+<p>
+<ul>
+<li> Select X, Select Y: You can select the variables to be plotted on the x-axis and the y-axis. ALL COMPARTMENTS defaults to all the compartments present in the model.
+<li> Select Grouping: One can select a grouping variable to group the lines by (e.g. ID).
+<li> Select Color Variable: Similarly, a color variable option is available to color the groups specified in this option.
+<li> Select Faceting: Selecting one or more faceting variables (e.g. ID, Dose) allows you to visualize a matrix of simulations based on the levels of the faceting variables.
+<li> Subset: Subset is an option to create a subset for plotting. For example, if one is interested in looking only at a particular dose, say 100 mg, despite simulating many dose levels, they can use subset option and have "dose==100" in there which will subset the simulated dataset to this dose and will only plot this new data. Note that the simulated data will not change.
+<li> Plot Prediction Interval, Prediction Interval (%): When simulating with variability, Prediction Interval provides an option to look at the bands as shaded areas rather than spaghetti plots (for example, a VPC like set up). One can also specify the level of the prediction intervals.
+<li> X-axis, Y-axis: Linear, log-linear, log-log plotting is possible by changing the X and Y axis to either a linear scale or a log scale.
+<li> Scales: Scales provides a means to have a uniform scale between different facets to easily compare profiles across them. One can choose either a fixed scale, free X, free Y or free both scales to tailor the plots.
+<li> Include Points: This option provides the user an option to plot points on top of the existing plot.
+<li> X-axis Label, Y-axis Label, Title, Footnote: One can also customize the labels for X-axis, Y-axis, Title, and Footnote.
+<li> Horizontal and Vertical Reference Line: A reference horizontal or vertical line can be added to the plots by specifying values at which these reference lines should occur.
+<li> Plot Height, Plot Width: Plot height and width can be adjusted (in pixels) to make it presentable or when it needs to be copied to other locations.
+<li> Plot Text Font Size: Font size of the text in the figure can be adjusted to make it readable.
+<li> Number of Figure Rows: This provides an option to customize the layout of the facets. For example, if there are 8 facets, and one want to have 4 rows x 2 column layout, they can type in 4 rows and the figure automatically chooses 2 columns making it a 4 x 2 layout.
+<li> Number of Rows for Legend: Similarly if there are many parts in the legend, one can choose the number of rows for the legend for ease of reading the legend.
+</ul>
+</p>
+<img src="Picture10.3.png" alt="HTML5 Icon", height="675", width="720">
+<p><a href="#back">Back to Contents</a></p>
+<hr> </hr>
+
+
+<h2> <a name="h-11">11</a> PK-NCA Tab </h2>
+<p> PK NCA tab summarizes the non-compartmental analysis for the simulated PK data. The interface provides Calculate NCA button to perform NCA calculations. </p>
+<img src="Picture11.1.png" alt="HTML5 Icon", height="137", width="520">
+<br>
+<p> Depending on whether it is a single dose or multiple dose, NCA calculated parameters differ.
+For example, with a single dose, AUC0-inf will be provided. </p>
+<img src="Picture11.2.png" alt="HTML5 Icon", height="178", width="734">
+<br>
+<p>For multiple dose, first and last dose NCA parameters will be provided (see start and end times). Instead of AUC0-inf, AUC0-tau and Cavg will be estimated.
+For documentation on how these NCA parameters are calculated, refer to the PKNCA R library documentation.</p>
+<img src="Picture11.3.png" alt="HTML5 Icon", height="231", width="743">
+<p> Note: PK-NCA will not be calculated when:
+<ul>
+<li>Custom event input data is provided.
+<li>For any external overlaid data.
+<li>When compartment <b>CENTRAL</b> is labelled differently or is not present in the model.
+<li>When clearance and central volume of distribution parameters are not explicitly labelled as <b>CL</b> and <b>V1</b> in the model.
+<li>When total observations exceed 100000.
+</ul>
+</p>
+<hr> </hr>
+
+<h2> <a name="h-12">12</a> Model Tab </h2>
+<p>Model tab lists the initial conditions for the parameters along with the differential equations and any associated equations describing the underlying model.
+This tab also lists the complete model code for user reference. Below is an example for the PKPD Library Model: PKPDM-ABS-2CMT-IRM3.cpp </p>
+<img src="Picture12.1.png" alt="HTML5 Icon", height="579", width="632">
+<p><a href="#back">Back to Contents</a></p>
+<hr> </hr>
+
+<h2> <a name="h-13">13</a> Inputs Tab</h2>
+<p>The inputs tab lists the values of the dosing events, fixed and random effects parameters of the model and the simulation options for the currently run simulation scenario.
+When advanced features such as <b>Set As Reference</b> are used, ModViz presents the values of both the current simulation and the reference scenarios.
+Below is an example for the PKPD Library Model: PKPDM-ABS-2CMT-IRM3.cpp </p>
+<img src="Picture13.1.png" alt="HTML5 Icon", height="1215", width="406">
+<p><a href="#back">Back to Contents</a></p>
+<hr> </hr>
+
+<h2> <a name="h-14">14</a> Downloads Tab</h2>
+<p>There are several download options once the simulation is run. They include:
+Simulated Data (.csv), Simulation Plot (.png), Individual NCA results (.csv), NCA Summary (.tab), Model file (.cpp), Report (.pdf) which summarizes all the components and results of the simulation in a comprehensive report.
+There is also a Session (.zip) download option that can be used to download the complete user session which includes all the plots, model files and individual and summary NCA files generated during the session.</p>
+<img src="Picture14.1.png" alt="HTML5 Icon", height="418", width="517">
+<p><a href="#back">Back to Contents</a></p>
+<hr> </hr>
+
+<h2> <a name="h-15">15</a> Advanced Options</h2>
+<p>The advanced options tab enables users to:
+<ul>
+<li>Overlay External Data: Upload external data and overlay that on top of a simulation. See external dataset upload section for rules about the format of the input dataset. </li>
+<li>Set As Reference: Set a certain simulation scenario as a reference and perform a second simulation and compare the two results. </li>
+<li>Parameter Sweep: Carry out simulations with a wide range of values for a given parameter which serves the purpose of a sensitivity analysis. </li>
+</ul>
+Note that the Model Selection option will be grayed out if Advanced Options are chosen.
+</p>
+<img src="Picture15.1.png" alt="HTML5 Icon", height="313", width="613">
+<p><a href="#back">Back to Contents</a></p>
+<hr> </hr>
+
+<h2> <a name="h-16">16</a> Overlaying External Data </h2>
+<p>After performing a simulation and obtaining an output, the user has an option to overlay external data by selecting Overlay External Data option from the advanced options.
+Subsequently the user can browse and select an input dataset from their local directory.
+Upon selection of the dataset and running simulation, the uploaded data will be added to the plot as points on top of the simulated lines in the plot. </p>
+<p>Additional plotting options Overlay Shape and Overlay Point Size will be available and they can be used to customize the shape and size of the points. </p>
+<img src="Picture16.1.png" alt="HTML5 Icon", height="611", width="804">
+<br> <br>
+
+<p>Format rules for input dataset:</p>
+<p>ID, time, dose and compartment name(s) are minimum column names needed to overlay data. Column names for compartments should match the exact names as denoted in the plot headers or in the simulated data, which can be downloaded and explored.
+For example, a two compartment first order absorption external data format is shown below.
+The compartment names in the dataset are CENTRAL and PERIPHERAL, which are identical to the ones as shown in the plot above. </p>
+<p>Note: Data classes should be all numeric in the external dataset. Overlay doesn’t work if there is a character in the dataset to be overlaid. </p>
+<img src="Picture16.2.png" alt="HTML5 Icon">
+<p><a href="#back">Back to Contents</a></p>
+<hr> </hr>
+
+<h2> <a name="h-17">17</a> Setting a Simulation as a Reference </h2>
+<p>Following a simulation, the user can set that scenario as a reference by selecting Set As Reference option from the Advanced Options.
+Subsequently, the user can change any of the values under Fixed Effects, Random Effects, Dosing Options and/or Simulation Options to perform a second simulation.
+The output will contain both the reference scenario (dotted line) and the latest simulation (solid line) results in all the outputs. </p>
+<p>Additional plotting options Reference Linetype and Reference Line Size will be available and they can be used to customize the line type and size of the lines. </p>
+</p>
+<img src="Picture17.1.png" alt="HTML5 Icon", height="596", width="791">
+<p><a href="#back">Back to Contents</a></p>
+<hr> </hr>
+
+<h2> <a name="h-18">18</a> Parameter Sweep for Sensitivity Analysis </h2>
+<p>On some occasions, it is worthwhile performing a sensitivity analysis by varying the values of a certain parameter and studying how these changes effect the overall output.
+ModViz users can do that by selecting Parameter Sweep option from the Advanced Options.
+Once selected, the user is asked to select a parameter of interest from the model for which a sensitivity analysis is to be carried out.
+Once the parameter is selected, the user has an option of providing values of the parameter as a sequence or comma separated values or a combination of these to evaluate the outcome at these different values as shown in the figure.</p>
+<p>Note: Selecting Run Simulation and selecting a grouping variable or color variable to be the parameter of interest in the Plot Options helps visualize the results of the sensitivity analysis better.</p>
+<img src="Picture18.1.png" alt="HTML5 Icon", height="650", width="838">
+<p><a href="#back">Back to Contents</a></p>
+<hr> </hr>
+
+<h2> <a name="h-19">19</a> Provide Feedback</h2>
+<p>For any questions, feedback or more information, you can reach out to:</p>
+<a href="mailto:pavan.vaddady@merck.com"><p> Pavan Vaddady </p></a>
+<a href="mailto:bhargava.kandala@merck.com"><p> Bhargava Kandala </p></a>
+<p><a href="#back">Back to Contents</a></p>
+<hr> </hr>
+

@@ -1,0 +1,99 @@
+\documentclass[10pt]{article}
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption} 
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{longtable}
+\usepackage{pdflscape}
+\usepackage{longtable}
+\usepackage{colortbl}
+
+\pagestyle{fancy}
+\lhead{ModViz-POP PK/PD Simulation Report}
+\rhead{Page \thepage}
+\cfoot{}
+\captionsetup[table]{skip=10pt}
+
+\lstset{
+basicstyle=\ttfamily,
+columns=flexible,
+breaklines=true
+}
+
+\floatstyle{plaintop}
+\restylefloat{table}
+\restylefloat{figure}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+
+\begin{document}
+\thispagestyle{empty}
+\title{ModViz V2.0 PK/PD Simulation Report}
+\maketitle
+\tableofcontents
+
+\section{Introduction}
+%%INTRO%%
+
+\newpage
+\begin{landscape}
+\section{Inputs}
+\subsection{Dosing Scheme}
+%%DOSING%%
+
+\subsection{Fixed Effect Parameters}
+%%FIXED_INPUT%%
+
+\subsection{Random Effect Parameters}
+%%RANDOM_INPUT%%
+
+\subsection{Simulation Options}
+%%SIMOPTIONS%%
+
+
+\newpage
+\section{Outputs}
+\subsection{Plots}
+\begin{figure}[H]
+\centering
+\includegraphics[width=6.5in, height=4.875in]{%%SIMULATION_PLOT%%}
+\caption{Simulation plots based on selected input parameters and dosing scheme}
+\end{figure}
+
+\newpage
+\subsection{PK Non-Compartmental Analysis}
+%%SECONDARYPK%%
+\blfootnote{Note: All NCA parameters except tmax are summarized by the geometric mean [geometric CV]. 
+                                   tmax is summarized by median [range].}                                    
+\end{landscape}
+
+\newpage
+\section{Model}
+\subsection{Initial Conditions}
+%%INIT_COND%%
+
+\subsection{Differential Equations}
+\begin{lstlisting}[basicstyle=\small] 
+%%ODE1%%
+\end{lstlisting}
+
+\subsection{Dependent Equations}
+\begin{lstlisting}[basicstyle=\small] 
+%%ODE2%%
+\end{lstlisting}
+
+\newpage
+\subsection{Code}
+\begin{lstlisting}[basicstyle=\small] 
+%%CODE%%
+\end{lstlisting}
+
+\end{document}
