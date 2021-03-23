@@ -6,7 +6,7 @@
 <h2><strong><a name="back">Contents</a></strong></h2>
 
 <ol>
-<li><a class="tocxref" href="#h-1">What is ModViz?</a></li>
+<li><a class="tocxref" href="#h-1">What is ModVizPop?</a></li>
 <li><a class="tocxref" href="#h-2">Model Selection Sources</a></li>
 <li><a class="tocxref" href="#h-3">PKPD Library</a></li>
 <li><a class="tocxref" href="#h-4">Project Library</a></li>
@@ -28,11 +28,11 @@
 </ol>
 </div>
 
-<h2> <a name="h-1">1</a> What is ModViz? </h2>
-<p> <strong>ModViz</strong> is an interactive and dynamic visualization tool developed for simulating ordinary differential equation based
-pharmacokinetic and pharmacodynamic (PK/PD) models with variability. Availability of a wide array of library PK/PD models, flexibility to
+<h2> <a name="h-1">1</a> What is ModVizPop? </h2>
+<p> <strong>ModVizPop</strong> is an interactive and dynamic visualization tool developed for simulating ordinary differential equation based
+population pharmacokinetic and pharmacodynamic (PK/PD) models. Availability of a wide array of library PK/PD models, flexibility to
 simulate from any ODE based user defined model, customizable plotting features, advanced features to overlay external data, setting a
-simulation as a reference, conducting parameter sensitivity analysis, and robust reporting features make ModViz an attractive platform to be
+simulation as a reference, conducting parameter sensitivity analysis, and robust reporting features make ModVizPop an attractive platform to be
 leveraged by PK/PD scientists and modelers in their day to day activities. It is primarily programmed in
 <a href="https://cran.r-project.org/" target="_blank">R</a> and uses key R packages such as <strong>tidyverse</strong>, <strong>mrgsolve</strong>,
 <strong>PKNCA</strong> and <strong>xtable</strong>. It utilizes <a href="http://shiny.rstudio.com/" target="_blank">R Shiny</a> for the web application
@@ -46,7 +46,7 @@ The user interface consists of a sidebar with several key inputs for performing 
 A tabbed navigation allows the user to visualize the simulated data, plots, PK NCA, model equations and input parameters.
 It also provides user the ability to download the underlying model, plots, simulated data, a comprehensive report consisting of all the key inputs and outputs of the simulations,
 and a complete simulation session the user works on.
-The Help button is a link to ModViz documentation with detailed instructions on different components of the interface for running tailored simulations.
+The Help button is a link to ModVizPop documentation with detailed instructions on different components of the interface for running tailored simulations.
 </p>
 <img src="Picture1.2.png" alt="HTML5 Icon", height="602", width="833">
 <p><a href="#back">Back to Contents</a></p>
@@ -99,7 +99,7 @@ stimulation/inhibition of factors controlling production/loss of drug response.
 </p>
 <img src="Picture3.1.png" alt="HTML5 Icon", height="752", width="336">
 <br><br>
-<p> Once all the options are chosen in the Model Selection, by clicking Load Model, ModViz loads and compiles the model.
+<p> Once all the options are chosen in the Model Selection, by clicking Load Model, ModVizPop loads and compiles the model.
 A progress bar on the bottom right hand corner indicates when the process is complete. Also, the loaded model is shown under the
 Load Model button to provide user clarity on which model is currently loaded for simulation. </p>
 <img src="Picture3.2.png" alt="HTML5 Icon", height="601", width="835">
@@ -108,28 +108,27 @@ Load Model button to provide user clarity on which model is currently loaded for
 
 
 <h2> <a name="h-4">4</a> Project Library </h2>
-<p> Project Library option in the Source Selection (with in Model Selection tab) lets the user select a model from a repository of PK/PD models. These models are developed by PPDM representatives on project teams to aid the teams on model informed drug discovery and development decisions.
-ADME PIs or QP2 leads who have a project specific final model that needs to be uploaded to the repository, please reach out to one of the project leads
+<p> Project Library option in the Source Selection (with in Model Selection tab) lets the user select a model from a repository of PK/PD models. These models are available in the public domain and are developed by pharmacometricians to aid the teams on model informed drug discovery and development decisions.
 (<a href="#h-19">Contact Information</a>).</p>
-<img src="Picture4.1.png" alt="HTML5 Icon", height="619", width="832">
+<img src="Picture4.1.png" alt="HTML5 Icon", height="651", width="645">
 <p><a href="#back">Back to Contents</a></p>
 <hr> </hr>
 
 <h2> <a name="h-5">5</a> User Defined Model </h2>
-<p>For User Defined Source Selection, select the *.cpp model file from the local path and select Load Model. It will load the model onto ModViz.</p>
+<p>For User Defined Source Selection, select the *.cpp model file from the local path and select Load Model. It will load the model onto ModVizPop.</p>
 <img src="Picture5.1.png" alt="HTML5 Icon", height="563", width="850">
 <p><a href="#back">Back to Contents</a></p>
 <hr> </hr>
 
 <h2> <a name="h-6">6</a> Fixed and Random Effects </h2>
-<p> Once the model selection is complete, ModViz provides an interface to edit fixed and random effects.
+<p> Once the model selection is complete, ModVizPop provides an interface to edit fixed and random effects.
 </p>
 <p>Fixed Effects option opens up the fixed effect parameters pop up. For PKPD Library of models, these need to updated to the set of PK/PD parameters for compounds of interest.
 For example, for the indirect response III model chosen, the following pop up appears for fixed effect parameter selection, which can be modified to the user requirements for simulation:
 </p>
 <img src="Picture6.1.png" alt="HTML5 Icon", height="434", width="853">
 <br><br>
-<p> The units options of the parameters are placeholders for users to note the correct units. They are not programmed to adjust for the specified doses or concentrations automatically. User has to carefully provide the units as ModViz is agnostic to these units.
+<p> The units options of the parameters are placeholders for users to note the correct units. They are not programmed to adjust for the specified doses or concentrations automatically. User has to carefully provide the units as ModVizPop is agnostic to these units.
 <br><br>
 Similarly, Random Effects opens up random effect parameter options.
 <ul>
@@ -259,7 +258,7 @@ This tab also lists the complete model code for user reference. Below is an exam
 
 <h2> <a name="h-13">13</a> Inputs Tab</h2>
 <p>The inputs tab lists the values of the dosing events, fixed and random effects parameters of the model and the simulation options for the currently run simulation scenario.
-When advanced features such as <b>Set As Reference</b> are used, ModViz presents the values of both the current simulation and the reference scenarios.
+When advanced features such as <b>Set As Reference</b> are used, ModVizPop presents the values of both the current simulation and the reference scenarios.
 Below is an example for the PKPD Library Model: PKPDM-ABS-2CMT-IRM3.cpp </p>
 <img src="Picture13.1.png" alt="HTML5 Icon", height="1215", width="406">
 <p><a href="#back">Back to Contents</a></p>
@@ -315,7 +314,7 @@ The output will contain both the reference scenario (dotted line) and the latest
 
 <h2> <a name="h-18">18</a> Parameter Sweep for Sensitivity Analysis </h2>
 <p>On some occasions, it is worthwhile performing a sensitivity analysis by varying the values of a certain parameter and studying how these changes effect the overall output.
-ModViz users can do that by selecting Parameter Sweep option from the Advanced Options.
+ModVizPop users can do that by selecting Parameter Sweep option from the Advanced Options.
 Once selected, the user is asked to select a parameter of interest from the model for which a sensitivity analysis is to be carried out.
 Once the parameter is selected, the user has an option of providing values of the parameter as a sequence or comma separated values or a combination of these to evaluate the outcome at these different values as shown in the figure.</p>
 <p>Note: Selecting Run Simulation and selecting a grouping variable or color variable to be the parameter of interest in the Plot Options helps visualize the results of the sensitivity analysis better.</p>
