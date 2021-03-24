@@ -17,6 +17,9 @@ use interface can serve as a valuable tool to project teams to evaluate
 potential scenarios facilitating collaborative decision making in the drug 
 discovery and development paradigm.
 
+![](./inst/shiny-apps/myapp/www/Picture1.1.png)
+
+
 ## Installation
 As this package is not currently on CRAN, install it via devtools:
 
@@ -30,3 +33,7 @@ devtools::install_github("PavanVaddady/modvizpop")
 library(modvizpop)
 runmodvizpop()
 ```
+
+## Demonstration
+![](./inst/shiny-apps/myapp/www/ModVizPop-Demo.gif)
+
