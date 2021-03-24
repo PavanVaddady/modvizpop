@@ -37,3 +37,9 @@ runmodvizpop()
 ## Demonstration
 ![](./inst/shiny-apps/myapp/www/ModVizPop-Demo.gif)
 
+
+## Publications and Posters
+
+1. [ModViz POP: R Shiny-Based PK/PD Interface for Empowering Teams to Perform Real-Time Simulations](./inst/shiny-apps/myapp/www/Posters/Vaddady_ACOP2018_ModViz.pdf)
+
+2. [Comparison of PK/PD simulations using ModVizPOP, an R-Shiny based PK/PD interface and NONMEM](./inst/shiny-apps/myapp/www/Posters/Ananthula_ACOP2019_ModViz.pdf)
