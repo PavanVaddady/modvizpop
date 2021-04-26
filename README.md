@@ -42,7 +42,7 @@ runmodvizpop()
 ### 2. Using shinyapps.io
 You can also access the readily working application using the following link:
 
-[https://pavanvaddady.shinyapps.io/modvizpop/](https://pavanvaddady.shinyapps.io/modvizpop/){target="_blank"}
+[https://pavanvaddady.shinyapps.io/modvizpop/](https://pavanvaddady.shinyapps.io/modvizpop/)
 
 ## Demonstration
 ![](./inst/shiny-apps/myapp/www/ModVizPop-Demo.gif)
