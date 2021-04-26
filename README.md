@@ -1,4 +1,4 @@
-# ModVizPop
+# ModVizPop 
 ### R Shiny Based Interface for Empowering Teams to Perform Real-Time Pharmacokinetic/Pharmacodynamic Simulations
 
 ModVizPop is an interactive and dynamic visualization tool 
@@ -19,20 +19,30 @@ discovery and development paradigm.
 
 ![](./inst/shiny-apps/myapp/www/Picture1.1.png)
 
+## Accessing the Application
 
-## Installation
-As this package is not currently on CRAN, install it via devtools:
+### 1. R Installation 
+
+<img src="./inst/shiny-apps/myapp/www/modvizpopThumbnail.png" width="130" height="150"/>
+
+
+This package is not currently on CRAN. Install it via devtools:
 
 ```r
 devtools::install_github("PavanVaddady/modvizpop")
 ```
 
-## Access App
+Once installed, access the application using the commands below:
 
 ```r
 library(modvizpop)
 runmodvizpop()
 ```
+
+### 2. Using shinyapps.io
+You can also access the readily working application using the following link:
+
+[https://pavanvaddady.shinyapps.io/modvizpop/](https://pavanvaddady.shinyapps.io/modvizpop/)
 
 ## Demonstration
 ![](./inst/shiny-apps/myapp/www/ModVizPop-Demo.gif)
