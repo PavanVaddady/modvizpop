@@ -1046,12 +1046,12 @@ plotSim <- eventReactive(input$updatePlot, {
     if(xVar=="time" && yVar=="value") {
       plotData <- runSim() %>%
         gather(cmpt, value, unlist(outVar()[2])[!unlist(outVar()[2]) %in% c("time")]) %>%
-        filter_(.dots=filterData)
+        filter(.dots=filterData)
     }
 
     if(yVar!="value") {
       plotData <- runSim() %>%
-        filter_(.dots=filterData)
+        filter(.dots=filterData)
     }
 
     if(nrow(plotData)>0) {
@@ -1079,11 +1079,11 @@ plotSim <- eventReactive(input$updatePlot, {
       }
 
       p1 <- p0 + geom_line(aes(group=get(groupBy), color=factor(get(colorBy)), linetype=TYPE)) +
-            scale_linetype_discrete(guide=F)
+            scale_linetype_discrete(guide="none")
 
      if(xVar!="time" && yVar!="value") {
       p1 <- p0 + geom_path(aes(group=get(groupBy), color=factor(get(colorBy)),linetype=TYPE)) +
-        scale_linetype_discrete(guide=F)
+        scale_linetype_discrete(guide="none")
      }
     }
 
@@ -1153,7 +1153,7 @@ plotSim <- eventReactive(input$updatePlot, {
                     fun.y=function(x) quantile(x, probs=0.5),
                     geom="line") +
         scale_fill_discrete(colorBy) +
-        scale_linetype_discrete(guide=F)
+        scale_linetype_discrete(guide="none")
     }
 
 
