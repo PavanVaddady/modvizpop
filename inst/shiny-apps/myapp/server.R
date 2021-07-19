@@ -1046,12 +1046,12 @@ plotSim <- eventReactive(input$updatePlot, {
     if(xVar=="time" && yVar=="value") {
       plotData <- runSim() %>%
         gather(cmpt, value, unlist(outVar()[2])[!unlist(outVar()[2]) %in% c("time")]) %>%
-        filter(.dots=filterData)
+        filter_(.dots=filterData)
     }
 
     if(yVar!="value") {
       plotData <- runSim() %>%
-        filter(.dots=filterData)
+        filter_(.dots=filterData)
     }
 
     if(nrow(plotData)>0) {
