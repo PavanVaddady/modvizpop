@@ -599,13 +599,13 @@ runMod  <-  eventReactive(input$runsim,{
        mod <- param(mod, newPar()[2,])
 
        if(input$randomOptions=="None")
-       mod <- mod %>% zero.re()
+       mod <- mod %>% zero_re()
 
        if(input$randomOptions=="Between Subject Only")
-       mod <- mod %>% omat(hot_to_r(input[["omegaTab"]])) %>% zero.re("sigma")
+       mod <- mod %>% omat(hot_to_r(input[["omegaTab"]])) %>% zero_re("sigma")
 
        if(input$randomOptions=="Residual Only")
-       mod <- mod %>% smat(hot_to_r(input[["sigmaTab"]])) %>% zero.re("omega")
+       mod <- mod %>% smat(hot_to_r(input[["sigmaTab"]])) %>% zero_re("omega")
 
        if(input$randomOptions=="Both")  {
        mod <- mod %>% omat(hot_to_r(input[["omegaTab"]]))
