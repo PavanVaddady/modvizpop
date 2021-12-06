@@ -198,7 +198,7 @@ dashboardPage(title="ModViz POP",
                column(width=10,
                 htmlOutput("plotOptionsCheckE"),
                 conditionalPanel("input.updatePlot",
-                                 plotOutput("outPlot") %>%
+                                 jqui_resizable(plotOutput("outPlot")) %>%
                                  withSpinner(type=getOption("spinner.type", 8),
                                              color="#136c68")))
                )), #end tabPanel-Plots
@@ -280,7 +280,7 @@ dashboardPage(title="ModViz POP",
                      br(),
                      tags$div(downloadButton("dwnSimData","Simulated Data", class="downloadButton")),
                      br(),
-                     tags$div(downloadButton("dwnPlot","Simlation Plot", class="downloadButton")),
+                     tags$div(downloadButton("dwnPlot","Simulation Plot", class="downloadButton")),
                      br(),
                      tags$div(downloadButton("dwnNCARaw","NCA Individual", class="downloadButton")),
                      br(),
